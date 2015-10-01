@@ -1,33 +1,33 @@
 // CSS snippet I found, it makes the page printable
 
-// @media print {
-// 	* {
-// 		background: none !important;
-// 		color: black !important;
-// 		box-shadow: none !important;
-// 		text-shadow: none !important;
+@media print {
+	* {
+		background: none !important;
+		color: black !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
 
-// 		/* Images, vectors and such */
-// 		filter: Gray(); 						 /* IE4-8: depreciated */
-// 		filter: url('desaturate.svg#grayscale'); /* SVG version for IE10, Firefox, Safari 5 and Opera */
-// 		-webkit-filter: grayscale(100%); 		 /* Chrome + Safari 6 */
-// 		-moz-filter: grayscale(100%); 			 /* Future proof */
-// 		-ms-filter: grayscale(100%); 			 /* Future proof */
-// 		-o-filter: grayscale(100%); 			 /* Future proof */
-// 		filter: grayscale(100%); 				 /* Future proof or polyfilled */
-// 	}
+		/* Images, vectors and such */
+		filter: Gray(); 						 /* IE4-8: depreciated */
+		filter: url('desaturate.svg#grayscale'); /* SVG version for IE10, Firefox, Safari 5 and Opera */
+		-webkit-filter: grayscale(100%); 		 /* Chrome + Safari 6 */
+		-moz-filter: grayscale(100%); 			 /* Future proof */
+		-ms-filter: grayscale(100%); 			 /* Future proof */
+		-o-filter: grayscale(100%); 			 /* Future proof */
+		filter: grayscale(100%); 				 /* Future proof or polyfilled */
+	}
 
-// 	a {
-// 		text-decoration: underline;
-// 	}
+	a {
+		text-decoration: underline;
+	}
 
-// 	a[href]:after {
-// 		content: " (" attr(href) ")"; 
-// 	}
+	a[href]:after {
+		content: " (" attr(href) ")"; 
+	}
 
-// 	a[href="#"],
-// 	a[href="javascript:"] {
-// 		content: "";
-// 	}
-// }
+	a[href="#"],
+	a[href="javascript:"] {
+		content: "";
+	}
+}
 // // End of print

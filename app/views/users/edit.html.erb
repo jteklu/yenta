@@ -14,7 +14,7 @@
 		</div>	
 
 		<h4 class="text-uppercase"><small>Profile Description</small></h4>
-		<textarea class="form-control" rows="5"></textarea>
+		<textarea class="form-control" rows="3"></textarea>
 		<h4 class="text-uppercase"><small>City</small></h4>
 		<input type="text" class="form-control">
 		<h4 class="text-uppercase"><small>Age</small></h4>
@@ -24,15 +24,18 @@
 
 		<div class="text-center">
 			<div class="fileinput fileinput-new" data-provides="fileinput">
-			  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 175px; height: 100px;">
+			  <div class="fileinput-new thumbnail" style="width: 150px; height: 75px;">
+			  	<img data-src="holder.js/100%x100%" src="../assets/cat.jpg">
 			  </div>
-			  <div>
+			  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 75px;"></div>
+			  	<div>
 			    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
 			    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 			  </div>
 			</div>
 		</div>
 
-		<button type="button" class="btn btn-primary btn-block btn-small">Submit</button>
-
+		<button type="button" class="btn btn-primary btn-block btn-xs">Submit</button>
+		<br />
+		<a href="">Cancel your account</a>
 </div>

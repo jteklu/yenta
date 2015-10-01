@@ -1,0 +1,55 @@
+// NAVBAR
+
+.navmenu-default, .navbar-default .navbar-offcanvas {
+	background-color: #282828;
+}
+
+.navmenu-nav li.active a i {
+	border: 2px solid $brand-primary;
+	border-radius: 100%;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	color: white;
+	line-height: 36px;
+	margin-right: 5px;
+	font-size: 16px;
+	color: $brand-primary;
+}
+
+.navmenu-nav li.active a {
+	color: $brand-primary !important;
+	background-color: transparent !important;
+}
+
+// HOME PAGE
+
+.home-info {
+	height: 200px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+}
+
+.bg-dark {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+}
+
+.slogan {
+	color: white;
+	font-family: 'Raleway', "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 500;
+	font-size: 45px;
+	line-height: 1.2em;
+	padding: 10px 0 10px;
+	text-align: center;
+}

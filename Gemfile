@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'bootstrap-sass', '~> 3.3.4'
 
+gem 'sprockets', '2.11.0'
+
 gem "autoprefixer-rails"
 
 gem 'font-awesome-sass', '~> 4.3.0'

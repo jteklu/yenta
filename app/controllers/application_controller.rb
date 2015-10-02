@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.find(session[:users_id]) if session[:users_id]	
   end
 
+  def require_login
+  	if session[:users_id] == nil
+  		redirect_to root_path
+  	end
+  end
+
+  helper_method :require_login
   helper_method :current_user
-  
+
 end

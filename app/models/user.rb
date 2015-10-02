@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+	has_attached_file :avatar,
+					  :storage => :s3,
+					  :styles => {:medium => "370x370", :thumbnail => "100x100"}
+
 	def self.sign_in_from_facebook(auth)
 		find_by(provider: auth['provider'], uid:['uid']) || create_user_from_facebook(auth)
 	end

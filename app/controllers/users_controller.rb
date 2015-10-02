@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
-  def index
-  end
+	before_action :require_login
 
-  def edit
-  end
+  	def index
+  	end
 
-  def profile
-  end
+  	def edit
+  	end
 
-  def matches
-  end
+  	def profile
+  	end
+
+  	def matches
+  	end
 end

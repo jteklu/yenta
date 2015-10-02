@@ -37,7 +37,13 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'figaro', '>= 1.0.0'
 
+gem 'fog', '~> 1.3.1'
+
 gem 'omniauth-facebook'
+
+gem "paperclip", "~> 4.3"
+
+gem 'aws-sdk', '< 2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

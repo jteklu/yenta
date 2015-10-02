@@ -9,12 +9,13 @@ Bundler.require(:default, Rails.env)
 module Yenta
   class Application < Rails::Application
 
-    config.paperclip_default = {
-        :storage            => :aws,
-        :aws_credentials    => {
-            :access_key_id      => ENV["AWS_ACCESS_KEY"],
-            :secret_access_key  => ENV["AWS_SECRET_KEY"],
-            :region             => ENV["AWS_REGION"]
+    config.paperclip_defaults = {
+        :storage           => :s3,
+        :s3_credentials    => {
+            :bucket             => ENV['AWS_BUCKET'],
+            :access_key_id      => ENV['AWS_ACCESS_KEY_ID'],
+            :secret_access_key  => ENV['AWS_SECRET_ACCESS_KEY']
+            # :region             => ENV['AWS_REGION']
         }
     }
 

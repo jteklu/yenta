@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-  	@current_user ||= User.find(session[:users_id]) if session[:users_id]	
+  	@current_user ||= User.find(session[:users_id]) if session[:users_id]
+    rescue ActiveRecord::RecordNotFound	
   end
 
   def require_login

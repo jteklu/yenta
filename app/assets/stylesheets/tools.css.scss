@@ -1,3 +1,5 @@
+@import "variables";
+
 // CSS snippet I found, it makes the page printable
 
 @media print {
@@ -74,6 +76,8 @@ body,html{
 // GENERAL LINKS
 a {
 	transition: all 0.3s ease-out;
+	color: $brand-primary;
+
 	
 }
 

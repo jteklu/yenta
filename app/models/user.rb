@@ -50,7 +50,6 @@ class User < ActiveRecord::Base
 	end
 	#Relationship Models	
 
-
 	private
 
 	def self.process_uri(uri)

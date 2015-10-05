@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+	has_many :relationships, dependent: :destroy
+	has_many :inverse_relationships, class_name: "Relationship", foreign_key: "match_id", dependent: :destroy
+
 	has_attached_file :avatar,
 					  :storage => :s3,
 					  :style => {:medium => "370x370", :thumb => "100x100"}
@@ -26,6 +30,26 @@ class User < ActiveRecord::Base
 
 			)
 	end
+
+	#Relationship Models
+	def request_match(user2)
+		self.relationships.create(match: user2)
+	end
+
+	def accept_match(user2)
+		self.relationships.where(match: user2).first.update_attribute(:state, "Active")
+	end
+
+	def remove_match(user2)
+		inverse_relationship = inverse_relationships.where(user_id: user2).first
+		if inverse_relationship
+			self.inverse_relationships.where(user_id: user2).first.destroy
+		else
+			self.relationships.where(match_id: user2).first.destroy
+		end
+	end
+	#Relationship Models	
+
 
 	private
 

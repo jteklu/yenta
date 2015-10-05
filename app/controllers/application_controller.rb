@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-  	@current_user ||= User.find(session[:users_id]) if session[:users_id]
+  	@current_user ||= User.find(session[:user_id]) if session[:user_id]
     rescue ActiveRecord::RecordNotFound	
   end
 
   def require_login
-  	if session[:users_id] == nil
+  	if session[:user_id] == nil
   		redirect_to root_path
   	end
   end

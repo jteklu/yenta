@@ -10,7 +10,7 @@
 		</ul>
 	</div>
 
-	<div class="action">
+	<div class="actions">
 		<a href="#" class="dislike"><i class="fa fa-times"></i></a>
 		<a href="#" class="like"><i class="fa fa-heart"></i></a>
 	</div>
@@ -21,17 +21,5 @@
 </div>
 
 <script type="text/javascript">
-$("#tinderslide").jTinder({
-    onDislike: function (item) {
-        alert('Dislike image ' + (item.index()+1));
-    },
-    onLike: function (item) {
-        alert('Like image ' + (item.index()+1));
-    },
-    animationRevertSpeed: 200,
-    animationSpeed: 400,
-    threshold: 1,
-    likeSelector: '.like',
-    dislikeSelector: '.dislike'
-});
+	$("#tinderslide > ul li").tsort({attr: "id"});
 </script>

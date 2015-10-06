@@ -6,4 +6,5 @@
 	<div class="user-location text-right"><i class="fa fa-map-marker"></i><%= user.location %></div>
 	<div class="like"></div>
 	<div class="dislike"></div>
+	<%= link_to "", create_relationship_path(match_id: user.id), id: "user_#{user.id}", method: :post, :remote => true %>
 </li>

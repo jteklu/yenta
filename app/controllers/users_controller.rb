@@ -22,5 +22,6 @@ class UsersController < ApplicationController
   	end
 
   	def matches
+  		@matches = current_user.relationships.where(state: "Active").map(&:match) + current_user.inverse_relationships.where(state: "Active").map(&:user)
   	end
 end

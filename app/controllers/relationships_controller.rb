@@ -7,7 +7,7 @@ class RelationshipsController < ApplicationController
 		
 		unless @inverse_relationship.blank?
 			@match.accept_match(current_user)
-			@like = true
+			@liked = true
 		else
 			current_user.request_match(@match)
 		end

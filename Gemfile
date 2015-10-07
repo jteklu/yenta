@@ -41,6 +41,8 @@ gem 'fog', '~> 1.3.1'
 
 gem 'omniauth-facebook'
 
+gem "cancan"
+
 gem "paperclip", "~> 4.3"
 
 gem 'aws-sdk', '< 2'

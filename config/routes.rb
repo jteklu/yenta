@@ -14,6 +14,8 @@ Yenta::Application.routes.draw do
   post 'create_relationship' => 'relationships#create'
   delete 'delete_relationship' => 'relationships#destroy'
 
+  get 'matches/get_email' => 'users#get_email'
+
   # get "users/index"
   # get "users/edit"
   # get "users/profile"

@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 	before_action :require_login
-  before_action :set_user, only: [:edit, :profile, :update, :destroy]
+  before_action :set_user, only: [:edit, :profile, :update, :destroy, :get_email]
 
   	def index
   		if params[:id]
-  			@users = User.where('id < ?', params[:id]).limit(2)
+  			@users = User.gender(current_user).not_me(current_user).where('id < ?', params[:id]).limit(10) - current_user.matched_likes(current_user)
   		else 
-  			@users = User.all.limit(2)
+  			@users = User.gender(current_user).not_me(current_user).limit(10) - current_user.matched_likes(current_user)
   		end
 
   		respond_to do |format|
@@ -45,6 +45,12 @@ class UsersController < ApplicationController
   	def matches
   		@matches = current_user.relationships.where(state: "Active").map(&:match) + current_user.inverse_relationships.where(state: "Active").map(&:user)
   	end
+
+    def get_email
+      respond_to do |format|
+        format.js
+      end
+    end
 
 
     private

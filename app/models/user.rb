@@ -50,6 +50,28 @@ class User < ActiveRecord::Base
 	end
 	#Relationship Models	
 
+	# Filter Methods
+	def self.gender(user)
+		case user.interest
+			when "Male"
+			where('gender = ?', 'male')
+			when "Female"
+			where('gender = ?', 'female')
+			else
+			all
+		end
+	end
+
+	def self.not_me(user)
+		where.not(id: user.id)
+	end
+
+	def matched_likes(current_user)
+		relationships.where(state: "pending").map(&:match) + current_user.relationships.where(state: "Active").map(&:match) + current_user.inverse_relationships.where(state: "Active").map(&:user)
+	end
+	# Filter Methods
+
+
 	private
 
 	def self.process_uri(uri)

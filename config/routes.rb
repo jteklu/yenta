@@ -9,7 +9,7 @@ Yenta::Application.routes.draw do
   end
 
   get 'auth/facebook/callback', to: 'sessions#create'
-  match 'sign_out', to: 'sessions#destroy', via: :delete
+  match '/sign_out', to: 'sessions#destroy', via: :delete
 
   post 'create_relationship' => 'relationships#create'
   delete 'delete_relationship' => 'relationships#destroy'

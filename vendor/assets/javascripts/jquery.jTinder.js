@@ -64,6 +64,7 @@
 			panes.eq(current_pane).hide().remove();
 			current_pane = index;
 
+			//Upon fetching users from DB show spinner.
 			$(".spinner").show();
 			
 		    var li_count = $( "#tinderslide > ul > li" ).length;
@@ -82,9 +83,9 @@
 					            // And the response will be a script
 					            dataType: "script",
 					 
-					            // Do something on success!// Upon success... 
+					            //Upon success... 
 					            success: function (e) {
-					            	$(".spinner").hide(); //...do somethig.
+					            	$(".spinner").hide(); //hide the spinner!
 					            }
 					        });
 		    		

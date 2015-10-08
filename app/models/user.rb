@@ -9,26 +9,42 @@ class User < ActiveRecord::Base
 
 	default_scope { order('id DESC') }
 
+  	# Include default devise modules. Others available are:
+  	# :confirmable, :lockable, :timeoutable and :omniauthable
+  	devise  :database_authenticatable, :registerable,
+  			:recoverable, :rememberable, :trackable, :validatable,
+  			:omniauthable, :omniauth_providers => [:facebook]
+
 
 	def self.sign_in_from_facebook(auth)
 		find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_facebook(auth)
 	end
 
-	def self.create_user_from_facebook(auth)
-		create(
-
-			avatar: process_uri(auth['info']['image'] + "?width=9999"),
-			email: auth['info']['email'],
-			provider: auth['provider'],
-			uid: auth['uid'],
-			name: auth['info']['name'],
-			gender: auth['extra']['raw_info']['gender'],
-			date_of_birth: auth['extra']['raw_info']['birthday'],
-			location: auth['info']['location'],
-			bio: auth['extra']['raw_info']['bio']
-
-			)
+	def self.from_omniauth(auth)
+		where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+	        user.uid 			= auth.uid
+	        user.email 			= auth.info.email
+	        user.password		= Devise.friendly_token[0,20]
+	        user.name 			= auth.info.name
+	        user.avatar 		= auth.info.avatar #not sure if I have to call it image?
+	        					  #process_uri(auth.info.image("?width=9999")) 
+	        					  #avatar: process_uri(auth['info']['image'] + "?width=9999")
+         	user.provider 		= auth.provider
+	        user.gender 		= auth.extra.raw_info.gender
+	        user.date_of_birth 	= auth.extra.raw_info.birthday
+	        user.location		= auth.info.location
+	        user.bio			= auth.extra.raw_info.bio
+      end
 	end
+
+	def self.new_with_session(params, session)
+    	super.tap do |user|
+      		if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        		user.email = data["email"] if user.email.blank?
+      		end
+    	end
+  	end
+
 
 	#Relationship Models
 	def request_match(user2)

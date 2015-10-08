@@ -2,7 +2,7 @@
 
 <div class="home-info">
 	<h1 class="slogan">A match your friends can approve</h1>
-	<%= link_to "auth/facebook", :class => "btn btn-social btn-lg btn-facebook" do %>
+	<%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-social btn-lg btn-facebook" do %>
 		<i class="fa fa-facebook"></i> Sign in with Facebook
 	<% end %>
 	<br /><br />

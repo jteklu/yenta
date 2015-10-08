@@ -39,6 +39,8 @@ gem 'figaro', '>= 1.0.0'
 
 gem 'fog', '~> 1.3.1'
 
+gem 'devise'
+
 gem 'omniauth-facebook'
 
 gem "paperclip", "~> 4.3"

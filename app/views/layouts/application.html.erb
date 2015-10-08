@@ -27,7 +27,6 @@
 			<li class="nav-btn"><%= link_to '/sign_out', method: :delete do %><i class="fa fa-cog"></i> Log out <% end %></li>
 		</ul>		
 	</nav>
-
 	<div class="navbar navbar-default navbar-fixed-top">
 
 		<button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
@@ -41,17 +40,22 @@
 		<button type="button" class="navbar-toggle button-nav pull-right">
 		  	<%= link_to matches_user_path(current_user) do %><i class="fa fa-heart"></i><% end %>
 		</button>
-
 	</div>
-
 <% else %>
-
 	<a class="navbar-brand" href="#">
 	  	<i class="fa fa-heart-o fa-3x", class="logo-brand">Yenta</i>
 	</a>
-
 <% end %>
 
+
+<% if notice.present? %>
+  	<p class = "alert alert-info"><%= notice %></p>
+<% end %>
+<% if alert.present? %>
+	<p class = "alert alert-danger"><%= alert %></p>
+<% end %>
+
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
 <%= yield %>
 

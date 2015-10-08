@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_many :relationships, dependent: :destroy
 	has_many :inverse_relationships, class_name: "Relationship", foreign_key: "match_id", dependent: :destroy
 
